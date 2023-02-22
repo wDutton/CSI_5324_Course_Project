@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Content {
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -27,9 +27,9 @@ public class Report {
     private Date date;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Content> contentList = new ArrayList<>();
+    private List<Post> postList = new ArrayList<>();
 
-    public void addContent(Content content) {
-        this.contentList.add(content);
+    public void addContent(Post post) {
+        this.postList.add(post);
     }
 }

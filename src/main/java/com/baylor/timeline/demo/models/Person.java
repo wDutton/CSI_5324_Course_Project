@@ -31,10 +31,10 @@ public class Person {
     private String email;
 
     @OneToMany(cascade = CascadeType.MERGE)
-    private List<Content> contentList = new ArrayList<Content>();
+    private List<Post> postList = new ArrayList<Post>();
 
-    public void addContent(Content content){
-        this.contentList.add(content);
+    public void addContent(Post post){
+        this.postList.add(post);
     }
  
     public enum Type {

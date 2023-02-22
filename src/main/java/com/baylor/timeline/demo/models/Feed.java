@@ -33,9 +33,9 @@ public class Feed {
 
     @OneToMany(cascade = CascadeType.ALL)
     @Size(min=1, max=10)
-    private List<Content> contentList = new ArrayList<>();
+    private List<Post> contentList = new ArrayList<>();
 
-    public void addContent(Content content) {
+    public void addContent(Post content) {
         this.contentList.add(content);
     }
 }
