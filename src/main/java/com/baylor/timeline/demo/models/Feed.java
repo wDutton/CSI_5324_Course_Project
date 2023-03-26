@@ -15,24 +15,26 @@ import jakarta.persistence.Column;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-@Data
 @Entity
 public class Feed {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
     private boolean isRolling;
 
+    @Column(nullable = false)
     private long duration;
 
-    @Nonnull
+    @Column(nullable = false)
     private LocalDate shutoffDateTime;
 
+    @Column(nullable = false)
     private LocalDate currentDateTime;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @Size(min=1, max=10)
+    @Size(min = 1, max = 10)
     private List<Post> contentList = new ArrayList<>();
 
     public void addContent(Post content) {
