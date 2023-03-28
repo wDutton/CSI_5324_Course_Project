@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -21,23 +22,47 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Nonnull
+    @Column(nullable = false)
     private String firstName;
 
-    @Nonnull
+    @Column(nullable = false)
     private String lastName;
 
-    @Nonnull
+    @Column(nullable = false)
     private String email;
 
     @OneToMany(cascade = CascadeType.MERGE)
     private List<Post> postList = new ArrayList<Post>();
 
-    public void addContent(Post post){
+    public void addContent(Post post) {
         this.postList.add(post);
     }
- 
+
     public enum Type {
         OfficeManager, Student, Faculty, Admin
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
